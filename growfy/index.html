@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">   
+    <title>growfy</title>
+</head>
+<body>
+    <!-- wrapper щоб не було горизонт прокрутки?, overflow hidden, clip (дозволяж для позишн стікі) або притиснути футер -->
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container">
+                <a href='' class="header__logo">
+                    <img src="img/header/Group.svg" alt="">
+                </a>
+                <nav class="header__menu menu">
+                    <!--  menu__body - це буде випадайка яка появлятиметься на клік бургера-->
+                    <div class="menu__body"> 
+                        <ul class="menu__list">
+                            <li class="menu__item">
+                                <a href="" class="menu__link">Home</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">About</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">Pages</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">Services</a>
+                            </li>
+                            <!-- <li class="menu__item">
+                                <a href="" class="menu__link">Services1</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">Services2</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">Services3</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">Services4</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">Services5</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">Services6</a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </nav>
+                <a href="" class="header__cart cart-header">
+                    <!-- div ? -->
+                    <div class="cart-header__text">Cart</div>
+                    <div class="cart-header__quantity">0</div>
+                </a>
+                <a href="" class="header__button button">Get started</a>
+                <!-- future burger -->
+                <button class="menu__icon icon-menu" type="button">
+                    <span></span>
+                </button>
+            </div>
+        </header>
+        <main class="page">
+            <!-- <div class="page__container"> -->
+                <section class="page__main main-page">
+                    <div class="main-page__container">
+                        <div class="main-page__content">
+                            <div class="main-page__header header-main">
+                                <h1 class="header-main__title">Marketing solutions that grow your business.</h1>
+                                <div class="header-main__subtitle">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor.
+                                    </p>
+                                </div>
+                                <div class="header-main__actions">
+                                    <a href="#" class="button main-page__button">Our services</a>
+                                    <a href="#" class="button main-page__button button__grey">Contact us</a>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="main-page__images images-main">
+                            <div class="images-main__column images-main__column_1">
+                                <div class="images-main__item">
+                                    <img src="img/main/page__main_img1.jpeg" alt="">
+                                </div>
+                                <div class="images-main__item">
+                                    <img src="img/main/page__main_img3.jpeg" alt="">
+                                </div>
+                            </div>
+                            <div class="images-main__column images-main__column_2">
+                                <div class="images-main__item">
+                                    <img src="img/main/page__main_img2.jpeg" alt="">
+                                </div>
+                                <div class="images-main__item">
+                                    <img src="img/main/page__main_img4.jpeg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="page__clients clients">
+                    <div class="clients__container">
+                        <div class="clients__title">TRUSTED BY startups and large enterprises</div>
+                        <div class="clients__items">
+                            <div class="clients__item">
+                                <img src="img/clients/luminous.svg" alt="" class="clients__image">
+                            </div>
+                            <div class="clients__item">
+                                <img src="img/clients/sitemark.svg" alt="" class="clients__image">
+                            </div>
+                            <div class="clients__item">
+                                <img src="img/clients/pronature.svg" alt="" class="clients__image">
+                            </div>
+                            <div class="clients__item">
+                                <img src="img/clients/greenish.svg" alt="" class="clients__image">
+                            </div>
+                            <div class="clients__item">
+                                <img src="img/clients/waveless.svg" alt="" class="clients__image">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="page__services services">
+                    <div class="services__container">
+                        <div class="services__content">
+                            <div class="services__header header-main">
+                                <a href="" class="header-main__label">Services</a>
+                                <h2 class="header-main__title">Services we offer</h2>
+                                <div class="header-main__subtitle">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor.
+                                    </p>
+                                </div>
+                                <div class="header-main__actions">
+                                    <a href="#" class="button main-page__button">All services</a>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="services__cards">
+                            <div class="services__column services__column__1">
+                                <div class="services__item item-service">
+                                    <div class="item-service__icon">
+                                        <img src="img/services/socialMediaMarketing.svg" alt="">
+                                    </div>
+                                    <div class="item-service__title">Social Media Marketing</div>
+                                    <div class="item-service__text text">Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing praesent velit.</div>
+                                </div>
+                                <div class="services__item item-service">
+                                    <div class="item-service__icon">
+                                        <img src="img/services/paidAdvertising.svg" alt="">
+                                    </div>
+                                    <div class="item-service__title">Paid Advertising</div>
+                                    <div class="item-service__text text">Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing praesent velit.</div>
+                                </div>
+                            </div>
+                            <div class="services__column services__column__2">
+                                <div class="services__item item-service">
+                                    <div class="item-service__icon">
+                                        <img src="img/services/emailMarketing.svg" alt="">
+                                    </div>
+                                    <div class="item-service__title">Email Marketing</div>
+                                    <div class="item-service__text text">Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing praesent velit.</div>
+                                </div>
+                                <div class="services__item item-service">
+                                    <div class="item-service__icon">
+                                        <img src="img/services/seoOptimization.svg" alt="">
+                                    </div>
+                                    <div class="item-service__title">SEO Optimization</div>
+                                    <div class="item-service__text text">Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing praesent velit.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="page__why why">
+                    <div class="why__container">
+                        <div class="why__images images-why">
+                            <div class="images-why__item images-why__item_1">
+                                <img src="img/why/why_1_trash.jpeg" alt="">
+                            </div>
+                            <div class="images-why__item images-why__item_2">
+                                <img src="img/why/why_2.jpeg" alt="">        
+                            </div>
+                        </div>
+                        <div class="why__content">
+                            <div class="why__header header-main">
+                                <a href="" class="header-main__label">Why choose us</a>
+                                <h2 class="header-main__title">We help great brands
+                                    scale with content marketing.</h2>
+                                <div class="header-main__subtitle">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor.
+                                    </p>
+                                </div>
+                                <ul class="header-main__list">
+                                    <li>This is some text inside of a div.</li>
+                                    <li>This is some text inside of a div.</li>
+                                    <li>This is some text inside of a div.</li>
+                                    <li>This is some text inside of a div.</li>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="advantages">
+                    <div class="advantages__container">
+                        <div class="advantages__cards">
+                            <article class="advantages__card">
+                                <h4 class="advantages__value">
+                                    1.2M+
+                                </h4>
+                                <div class="advantages__text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.
+                                </div>
+                            </article>
+                            <article class="advantages__card">
+                                <h4 class="advantages__value">
+                                    3.4B
+                                </h4>
+                                <div class="advantages__text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.
+                                </div>
+                            </article>
+                            <article class="advantages__card">
+                                <h4 class="advantages__value">
+                                    98%
+                                </h4>
+                                <div class="advantages__text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.
+                                </div>
+                            </article>
+                            <article class="advantages__card">
+                                <h4 class="advantages__value">
+                                    10+
+                                </h4>
+                                <div class="advantages__text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.
+                                </div>
+                            </article>
+                        </div>
+                        <div class="advantages__image">
+                            <img src="img/advantages/adv.jpeg" alt="advantage">
+                            <!-- <img src="img/why/why_2.jpeg" alt="">   -->
+                        </div>
+                    </div>
+                </section>
+                <section class="page__testimonials testimonials">
+                    <div class="testimonials__container">
+                        <div class="testimonials__content">
+                            <div class="testimonials__header header-main">
+                                <a href="" class="header-main__label">Testimonials</a>
+                                <h2 class="header-main__title">See what our clients say</h2>
+                                <div class="header-main__body">
+                                    <div class="header-main__subtitle">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero.
+                                        </p>
+                                    </div>
+                                    <div class="header-main__actions">
+                                        <a href="#" class="button testimonials__button">Get in touch</a>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonials__items">
+                            <article class="testimonials__item item-testimonial">
+                                <div class="item-testimonial__user user-testimonial">
+                                    <div class="user-testimonial__avatar user-testimonial__avatar_1">
+                                        <img src="img/testimonials/avatar1.jpeg" alt="">
+                                    </div>
+                                    <div class="user-testimonial__body">
+                                        <div class="user-testimonial__name">John Doe</div>
+                                        <div class="user-testimonial__company">Softonix</div>
+                                    </div>
+                                </div>
+                                <h4 class="testimonials__title">"I recommend this agency"</h4>
+                                <h4 class="testimonials__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero.
+                                </h4>
+                                <div class="testimonials__rate">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                </div>
+                            </article>
+                            <article class="testimonials__item item-testimonial">
+                                <div class="item-testimonial__user user-testimonial">
+                                    <div class="user-testimonial__avatar user-testimonial__avatar_2">
+                                        <img src="img/testimonials/avatar2.jpeg" alt="">
+                                    </div>
+                                    <div class="user-testimonial__body">
+                                        <div class="user-testimonial__name">Alice Smith</div>
+                                        <div class="user-testimonial__company">SoftServe</div>
+                                    </div>
+                                </div>
+                                <h4 class="testimonials__title">"The support is awesome"</h4>
+                                <h4 class="testimonials__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero.
+                                </h4>
+                                <div class="testimonials__rate">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                </div>
+                            </article>
+                            <article class="testimonials__item item-testimonial">
+                                <div class="item-testimonial__user user-testimonial">
+                                    <div class="user-testimonial__avatar user-testimonial__avatar_3">
+                                        <img src="img/testimonials/avatar3.jpeg" alt="">
+                                    </div>
+                                    <div class="user-testimonial__body">
+                                        <div class="user-testimonial__name">Sophia Miller</div>
+                                        <div class="user-testimonial__company">Softonix</div>
+                                    </div>
+                                </div>
+                                <h4 class="testimonials__title">"A game changer for us"</h4>
+                                <h4 class="testimonials__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero.
+                                </h4>
+                                <div class="testimonials__rate">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                    <img src="img/testimonials/rate_star.svg" alt="">
+                                </div>
+                            </article>
+                            
+                        </div>
+                    </div>
+                </section>
+                <section class="page__blog blog">
+                    <div class="blog__container">
+                        <div class="blog__header header-main">
+                            <a href="" class="header-main__label">Blog</a>
+                            <h2 class="header-main__title">Read our articles & news</h2>
+                            <div class="header-main__body">
+                                <div class="header-main__subtitle">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero.
+                                    </p>
+                                </div>
+                                <div class="header-main__actions">
+                                    <a href="#" class="button blog__button">All Posts</a>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="blog__items">
+                            <article class="blog__item item-blog">
+                                <div class="item-blog__header">
+                                    <a href="" class="item-blog__category">Social Media</a>
+                                    <a href='#' class="item-blog__image">
+                                        <img src="img/blog/blog1.jpeg" alt="image 1">
+                                    </a>
+                                </div>
+                                <div class="item-blog__body">
+                                    <div class="item-blog__date">August 28, 2022</div>
+                                    <h4 class="item-blog__title">
+                                        <a href="" class="item-blog__link-title">How to Use Social Proof in Marketing</a>
+                                    </h4>
+                                    <div class="item-blog__text">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing praesent velit viverra sit semper lorem.
+                                        </p>
+                                    </div>
+                                    <a href="" class="item-blog__link">Read now</a>
+                                </div>
+                            </article>
+                            <article class="blog__item item-blog">
+                                <div class="item-blog__header">
+                                    <a href="" class="item-blog__category">SEO</a>
+                                    <a href='#' class="item-blog__image">
+                                        <img src="img/blog/blog2.jpeg" alt="image 2">
+                                    </a>
+                                </div>
+                                <div class="item-blog__body">
+                                    <div class="item-blog__date">August 28, 2022</div>
+                                    <h4 class="item-blog__title">
+                                        <a href="" class="item-blog__link-title">Make a great first impression with these titles</a>
+                                    </h4>
+                                    <div class="item-blog__text">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing praesent velit viverra sit semper lorem.
+                                        </p>
+                                    </div>
+                                    <a href="" class="item-blog__link">Read now</a>
+                                </div>
+                            </article>
+                            <article class="blog__item item-blog">
+                                <div class="item-blog__header">
+                                    <a href="" class="item-blog__category">Strategy</a>
+                                    <a href='#' class="item-blog__image">
+                                        <img src="img/blog/blog3.jpeg" alt="image 3">
+                                    </a>
+                                </div>
+                                <div class="item-blog__body">
+                                    <div class="item-blog__date">August 28, 2022</div>
+                                    <h4 class="item-blog__title">
+                                        <a href="" class="item-blog__link-title">How to Grab Your Reader's Attention</a>
+                                    </h4>
+                                    <div class="item-blog__text">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing praesent velit viverra sit semper lorem.
+                                        </p>
+                                    </div>
+                                    <a href="" class="item-blog__link">Read now</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <section class="page__start start">
+                    <div class="start__container">
+                        <div class="start__body">
+                            <div class="start__column">
+                                <h2 class="start__title">
+                                    Ready to start scaling your business now?
+                                </h2>
+                                <div class="start__text">
+                                    <p>Lorem ipsum dolor sit am consectetur adipiscing varius enim in eros.</p>
+                                </div>
+                            </div>
+                            <div class="start__column">
+                                <div class="start__actions">
+                                    <a href="#" class="button start__button">Our services</a>
+                                    <a href="#" class="button start__button button__grey">Contact us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <!-- </div> -->
+        </main>
+        <footer class="footer">
+            <div class="footer__main main-footer">
+                <div class="main-footer__container">
+                    <div class="main-footer__columns">
+                        <div class="main-footer__column">
+                            <a href='#' class="main-footer__logo">
+                                <img src="img/header/Group.svg" alt="">
+                            </a>
+                            <div class="main-footer__text text">
+                                <p>
+                                    Growfy is a template highly suitable for modern marketing agencies, digital studios, startups and businesses. The design is made in the dark style, which makes the site memorable and you can easily adapt it to your brand.
+                                </p>
+                            </div>
+                            <div class="main-footer__social social">
+                                <a href="" class="social__link">
+                                    <img src="img/footer/1.svg" alt="" class="social__image">
+                                </a>
+                                <a href="" class="social__link">
+                                    <img src="img/footer/2.svg" alt="" class="social__image">
+                                </a>
+                                <a href="" class="social__link">
+                                    <img src="img/footer/3.svg" alt="" class="social__image">
+                                </a>
+                                <a href="" class="social__link">
+                                    <img src="img/footer/4.svg" alt="" class="social__image">
+                                </a>
+                                <a href="" class="social__link">
+                                    <img src="img/footer/5.svg" alt="" class="social__image">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="main-footer__column">
+                            <div class="main-footer__label">Pages</div>
+                            <nav class="main-footer__menu menu-footer">
+                                <ul class="menu-footer__list">
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Home</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">About</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Services</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Packages</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Blog</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="main-footer__column">
+                            <div class="main-footer__label">Utility pages</div>
+                            <nav class="main-footer__menu menu-footer">
+                                <ul class="menu-footer__list">
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Instructions</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Style guide</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Licenses</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Changelog</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">404 Not found</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Password protected</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="main-footer__column">
+                            <div class="main-footer__label">Subscribe to our newsletter</div>
+                            <div class="main-footer__subscribe subscribe-footer">
+                                <div class="subscribe-footer__text text">
+                                    <p>
+                                        Lorem ipsum dolor sit am consectetur adipiscing
+                                    </p>
+                                </div>
+                                <form class='subscribe-footer__form' action="#" method="get" enctype="multipart/form-data">
+                                    <input type="email" required class="subscribe-footer__input" placeholder="Enter your email">
+                                    <button tyre='submit' class="button subscribe-footer__button">Subscribe<button/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom bottom-footer">
+                <div class="bottom-footer__container">
+                    <div class="bottom-footer__copy">© 2022</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+  <script src="js/main.js"></script>  
+</body>
+</html>

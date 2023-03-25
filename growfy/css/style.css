@@ -1,0 +1,1723 @@
+/* ------ Обнулення -------*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{
+    outline: none;
+}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;
+    /* !!!! me
+    color: inherit;  */
+}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+
+/*-----------------------*/
+
+/* the default (aka "Regular") font weight is 400. 
+the "bold" font weight is 700. 
+the "light" font weight is 300. 
+*/
+
+body{
+    font-family: "Poppins";
+    font-weight: 300;
+    color: #9C9C9C;
+    background-color: #0D0D11;
+    font-size: 16px;
+}
+
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    /* Similar to hidden, the content is clipped to the element's padding box. The difference between clip and hidden is that the clip keyword also forbids all scrolling, including programmatic scrolling. */
+    overflow: clip; 
+    /* тобто якщо ми матимемо якийсь блок де буде оверфлоу, то через hidden ми в js все одно зможемо прокручувати 
+       (клікнувши на елемент) $0.scrollTop = 10 прокрутили на 10 px */
+}
+
+.page{
+    /* щоб прижати footer робимо щоб наш флекс елемент міг рости по висоті (бо flex-direction: column)
+    or -> flex: 1 1 auto; */
+    flex-grow: 1; 
+}
+
+/* визначаємо тип адаптиву, по брейкпоінтам (стрибками ) чи чуйний адаптив (по піксельно плавно буде звужуватиметься контейнер)
+    але спершу визначимо обмежуючий контейнер - контейнер який обмежує контент
+    по найширшому блоку або вертик. лініями які ми помістили = 1280px */
+
+[class*='__container'] {
+    max-width: 1310px;
+    margin: 0 auto;
+    padding: 0 15px; /* відступи безпеки, і тому на 30 збільшуємо max-width*/
+}
+
+.button {
+    /* бо будемо і в інших місцях її юзати */
+    display: inline-block; 
+
+    text-align: center;
+    background: #3D96F4;
+    border-radius: 50px;
+    /* краще забрати */
+    /* min-height: 52px; */
+
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4; /* 22/14 */
+    padding: 16px 30px;
+    
+    white-space: nowrap;
+
+    transition: background-color 0.3s ease 0s;
+}
+
+.button__grey {
+    background: rgba(129, 129, 139, 0.2);;
+}
+
+
+@media (max-width:991.98px) {
+    .button{
+        /* min-height: 32px; */
+        padding: 14px 20px;
+    }
+}
+
+.button:hover {
+    background: #79b6f7;
+}
+.button__grey:hover {
+    background: rgba(129, 129, 139, 0.5);;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #0d0d117c;
+
+    z-index: 50;
+}
+
+.header__container {
+    display: flex;
+    column-gap: 35px;
+    min-height: 116px;
+    /* padding: 5px 0; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    align-items: center;
+}
+.header__logo {
+}
+.header__menu {
+    flex-grow: 1;
+}
+
+.menu {
+}
+.menu__icon {
+}
+.icon-menu {
+    /* burger */
+    display: none;
+}
+.menu__list {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 35px;
+
+    /* не так для адаптиву як для надійності, щоб нічого не зламалося коли буде багато пунктів */
+    flex-wrap: wrap; 
+    row-gap: 3px;
+}
+
+
+.menu__link {
+    line-height: 1.625; /* 26/16   краще в частинах ніж в 162.5% */
+    color: #FFFFFF;
+
+    display: block;
+    width: 100%;
+}
+
+.menu__link:hover{
+    text-decoration: underline;
+}
+
+.header__cart {
+}
+
+.cart-header {
+    color: #FFFFFF;
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+}
+.cart-header__text {
+    font-size: 18px;
+    line-height: 1.55; /* 28/18 */
+
+}
+
+.cart-header:hover .cart-header__text{
+    text-decoration: underline;
+}
+
+.cart-header__quantity {
+    height: 30px;
+    width: 30px;
+    background: rgba(129, 129, 139, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: 500;
+
+}
+.header__button {
+    /* або до загального класу
+     white-space:no-wrap;
+     або це, оскільки .header__button є флекс-елементом  */
+    flex: 0 0 auto;
+}
+
+@media (max-width:991.98px) {
+    .menu__list,
+    .header__container{
+        column-gap:25px;
+    }
+
+    .header__container{
+        /* from 116 to 70px */
+        min-height: 90px; 
+    }
+}
+
+/*                          START  ---------- MEDIA max-width: 767.98px ----------                         */
+/* чому 767.98px а не 768px 
+   це все ми підстроюємося під пристрої
+   наприклад розглянемо ipad mini
+   у нього ширина 768 пікселів
+   тобто якщо б ми поставили 
+   @media (max-width: 768px){
+   то в нас би на плашеті зʼявився бургер (а нашо він нам, якщо на 768 в нас меню ще не ламається)*/
+@media (max-width: 767.98px){ 
+
+    /* ---------------------------------- BURGER ---> */
+    .menu__icon{
+        display: block;
+        flex: 0 0 30px;
+        height: 18px;
+
+        position: relative;
+        z-index: 5;
+
+        /* шоб бургер був прозорий!! */
+        /* background-color: #000; */
+        background-color: transparent;
+    }
+
+    .menu__icon span,
+    .menu__icon:before,
+    .menu__icon:after{
+        content: '';
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 15px;
+
+        position: absolute;
+
+        transition: all 0.3s ease 0s;
+    }
+
+    .menu__icon span{
+        top: calc(50% - 1px);
+    }
+    .menu__icon:before{
+        top:0;
+    }
+    .menu__icon:after{
+        bottom:0;
+    }
+    /* <--- BURGER ---------------------------------- */
+
+    /* -------------------- MENU ON BURGER CLICK ---> */
+    .menu__body{
+        display: block;
+        position: fixed;
+        /* z-index: ; */
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        top:0;
+        left:-100%;
+        transition: left 0.3s ease 0s;
+
+        /* шоб опустити меню трохи вниз */
+        padding: 100px 15px 30px 15px;
+
+        /* якщо буде багато пунктів о шоб можна було скролити */
+        overflow: auto;
+    }
+
+    body.burger_open {
+        overflow-y: hidden;
+        /* але з айфонами не пахатиме */
+        /* https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/ */
+    }
+
+    body.burger_open .menu__body,
+    body.burger_open .menu__body:before {
+        left:0;
+    }
+    /*  <--- MENU ON BURGER CLICK -------------------- */
+
+
+    /* -------------------- BURGER ON BURGER CLICK ---> */
+    body.burger_open .menu__icon span{
+        opacity: 0;
+    }
+
+    body.burger_open .menu__icon:before{
+        transform: rotate(-45deg);
+        top:8px;
+    }
+    body.burger_open .menu__icon:after{
+        transform: rotate(45deg);
+        top:8px;
+    }
+    /* <--- BURGER ON BURGER CLICK -------------------- */
+
+
+    /* .menu__body.active,
+    .menu__body.active:before {
+        left:0;
+    } */
+
+    .menu__body:before {
+        content: '';
+        display: block;
+        width: 100%;
+        min-height: 70px;
+        background-color: #000000;
+        
+        position: fixed;
+        left: -100%;
+        top: 0;
+    }
+
+    .menu__list{
+        /* min-height: 100%; */
+        flex-direction: column;
+        row-gap: 10px;
+        /* justify-content: space-evenly; */
+        /* align-items: center; */
+    }
+    .menu__item{
+        text-align: center;
+        /* flex-grow: 1; */
+    }
+    .menu__link{
+        font-size: 32px;
+    }
+    .header__container {
+        /* from 116 to 70px */
+        min-height: 70px; 
+    }
+
+    .menu__list,
+    .header__container{
+        column-gap:15px;
+    }
+
+    .menu__item:nth-child(odd)  {
+        background-color: #151515;
+    }
+    .menu__item:nth-child(even)  {
+        background-color: #212121;
+    }
+}
+/*                          END  ---------- MEDIA max-width: 767.98px ----------                         */
+
+
+/* робимо щоб в бургері був логотип, header__button, header__cart */
+.header__logo,
+.header__button,
+.header__cart
+ {
+    position: relative;
+    z-index: 2;
+}
+
+/* не хватає місця при звужувані в header-i в бургері, тому зробимо круту маніпуляцію з логотипом */
+@media (max-width:560px) {
+    .header__logo{
+        width: 35px;
+        overflow: hidden;
+    }
+}
+
+@media (max-width:373px) {
+    .cart-header__text{
+        display: none;
+    }
+    .cart-header__quantity {
+        border-radius: 0;
+        width: 50px;
+        height: 40px;
+        background: url('../img/header/shopping-cart.svg');
+        background-repeat: no-repeat;
+        background-position: 7px 2.5px;
+        background-size: contain;
+        font-size: 13px;
+    }
+    .header__menu{
+    }
+    .header__container{
+        column-gap:10px;
+    }
+    .header__logo{
+        /* width: 25px; */
+    }
+    .header__logo img{
+        /* width: 100px; */
+    }
+    .header__button{
+        padding: 7px 10px;
+        letter-spacing: normal;
+    }
+
+}
+
+
+/* ============================================    main page    ======================================================= */
+
+.page__main {
+    /* 116px + 44px == висота хедера + відступ мейн секції від хедера */
+    padding-top: 160px; 
+    padding-bottom: 100px; 
+}
+
+/* проблема: main content заходить поверх header-а при скролі, тобто проблема z-index-ів
+   ріщення моє: зменшити  z-index .main-page. Воно погане, бо тоді ми не можемо в консолі наводити на елементи 
+   РІШЕННЯ ЖЕНІ: зробити великий  z-index для хедера. !!!!! */
+.main-page {
+    /* position: relative;
+    z-index: -1; */
+}
+
+.main-page__container {
+    display: flex;
+    column-gap: 32px;
+    row-gap: 32px;
+}
+
+.main-page__content {
+    flex-basis: 50%;
+    align-self: center;
+}
+
+.header-main__title {
+    font-weight: 500;
+    font-size: 51px;
+    line-height: 1.19; /* 61/51 */
+    color: #FFFFFF;
+    /* max-width: 506px; */
+
+    position: relative;
+    /* нашо тут not last child ? і що це 
+     відступ від тексту коли він не останній
+     тобто якщо написати ту просто на пряму, і якщо після нього ніколо не буде то він все одно побудує той відступ
+     а нашо будувати якшо внизу нічого нема*/
+     /* !!!!!!! remove */
+    /* margin-bottom: 28px; */
+}
+
+
+    
+.header-main__title:not(:last-child){
+    margin-bottom: 28px;
+}
+
+.main-page__header{
+    position: relative;
+}
+.main-page__header:before{
+    content: '';
+    display: block;
+    background: url('../img/decor.svg') no-repeat;
+    width: 122px;
+    height: 122px;
+
+    position: absolute;
+    top: -20px;
+    left: -30px;
+}
+
+
+
+.text{
+    line-height: 1.5; /* 24/16 and 27/18 */
+    color: #81818B;
+}
+
+.text_big{
+    color:#9C9C9C;
+    font-size: 18px;
+}
+
+.header-main__subtitle {
+    font-size: 18px;
+    line-height: 1.5; /* 27/18 */
+    color:#9C9C9C;
+    /* max-width: 500px; */
+}
+
+/* а тут в header-main header-main__subtitle є останній
+   тому відступ не примениться*/
+/* .header-main__subtitle:not(:last-child){
+    margin-bottom: 33px;
+} */
+/* робимо так */
+/* .header-main{
+    margin-bottom: 33px;
+} */
+/* ЗАБРАВ ЦЕ, ВИЩЕ БО ТЕПЕР  */
+.header-main__subtitle:not(:last-child){
+    margin-bottom: 33px;
+}
+
+.header-main__label{
+    display: inline-block;
+    font-size: 10.8px;
+    line-height: 1.6; /* 17.28px/10.8px */
+    letter-spacing: 2px;
+    color:#9C9C9C;
+    border: 1px solid rgba(129, 129, 139, 0.2);
+    border-radius: 8px;
+    padding: 11px 19px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+}
+
+.header-main__label:not(:last-child){
+    margin-bottom: 19px;
+}
+
+.header-main__label:hover{
+    color:#c8c6c6;
+    border-color: rgba(129, 129, 139, 0.4);
+    box-shadow: 2px 2px 5px #000;
+}
+
+.header-main__actions {
+    display: flex;
+    /* gap: 32px; */
+    gap: 5.128205%; /* 32/624 */
+}
+
+@media (max-width:991.98px) {
+    .page__main {
+        /* 90px + 30px == висота хедера + відступ мейн секції від хедера */
+        padding-top: 120px; 
+        padding-bottom: 60px; 
+    }
+
+    .header-main__title {
+        font-size: 44px;
+    }
+
+    .header-main__title:not(:last-child){
+        margin-bottom: 20px;
+    }
+
+    /* .header-main{
+        margin-bottom: 23px;
+    } */
+    .header-main__subtitle:not(:last-child){
+        margin-bottom: 23px;
+    }
+}
+
+@media (max-width:767.98px) {
+    .page__main {
+        /* 70px + 30px == висота хедера + відступ мейн секції від хедера */
+        padding-top: 100px; 
+        padding-bottom: 30px; 
+    }
+
+    .header-main__title {
+        font-size: 32px;
+    }
+
+    .header-main__title:not(:last-child){
+        margin-bottom: 15px;
+    }
+
+    /* бо я заніс actions в header-main */
+    /* .header-main{
+        margin-bottom: 15px;
+    } */
+    .header-main__subtitle:not(:last-child){
+        margin-bottom: 15px;
+    }
+
+    .main-page__container{
+        flex-direction: column;
+    } 
+
+    .main-page__content {
+        flex-basis: 100%;
+        align-self: stretch;
+    }
+
+    /* трохи защирокі кнопки будуть тому 479px */
+    /* .header-main__actions {
+        flex-direction: column;
+        row-gap: 10px;
+    } */
+}
+
+@media (max-width:479px) {
+    .header-main__actions {
+        flex-direction: column;
+        row-gap: 15px;
+    }
+}
+
+/* min-width: 768px - MOBILE FIRST !!!!!!!!
+   тобто ми обмежуємо по мінімуму - [768px; inf) 
+   тобто якщо вюпорт більше >= 768px, то стилі в медіазапиті будуть виконані
+   стилі застосуються лише на екранах > 768 пікселів
+*/
+@media (min-width:768px) {
+    .header-main__title {
+        max-width: 506px;
+    }
+    .header-main__subtitle{
+        max-width: 500px;
+    }
+}
+
+.header-main__list{
+    
+}
+
+.header-main__list li{
+    position: relative;
+    padding-left: 42px;
+    line-height: 32px;
+}
+
+/* .header-main__list li + li{
+    margin-top: 16px;
+} */
+.header-main__list li:not(:last-child){
+    margin-bottom: 16px;
+}
+
+
+.header-main__list li:before{
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    background: url('../img/why/check.svg'), rgba(129, 129, 139, 0.1);
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.header-main__body{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.header-main__body .header-main__subtitle{
+    margin-bottom: 0;
+}
+
+@media (max-width:767.98px){
+
+    .header-main__body{
+        flex-direction: column;
+        gap: px;
+    }
+    .header-main__body .header-main__actions{
+        align-self: flex-start;
+    }
+
+    .header-main__body .header-main__subtitle{
+        margin-bottom: 20px;
+    }
+}
+
+.main-page__button {
+}
+
+.button__grey {
+}
+
+.main-page__images {
+}
+
+.images-main {
+    flex-basis: 50%;
+    
+    display: flex;
+    /* !!!! lifehack
+    % - погано бо при зменшені буде відступ агромний */
+    /* gap:60px; */
+    gap: 9.615385%; /* 60/624 */
+
+    /* justify-content: center; */
+}
+.images-main__column{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.images-main__item{
+    overflow: hidden;
+}
+
+.images-main__column_1 .images-main__item:nth-child(1),
+.images-main__column_2 .images-main__item:nth-child(2){
+    border-radius: 125px;
+    /* or */
+    /* border-radius: 50%/29%; */
+}
+
+.images-main__column_1 .images-main__item:nth-child(2){
+    border-radius: 50% 50% 0 50%;
+}
+.images-main__column_2 .images-main__item:nth-child(1){
+    border-radius: 50% 0 50% 50% ;
+}
+
+
+.images-main__item img{
+    max-width: 100%;
+}
+
+
+
+/* =========================================== clients  =========================================== */
+.page__clients {
+}
+.clients {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.clients__container {
+}
+.clients__title {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6; /* 22.4/14 */
+    letter-spacing: 1px;
+    margin-bottom: 44px;
+}
+.clients__items {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    /* box-shadow: inset 100px 0 25px -10px #0D0D11, inset -100px 0 25px -1px #0D0D11; */
+}
+.clients__item {
+}
+.clients__item img{
+    max-width: 100%;
+}
+.clients__image {
+}
+
+@media (max-width:991.98px){
+    .clients {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .clients__title {
+        margin-bottom: 34px;
+    }
+}
+@media (max-width:767.98px){
+    .clients {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .clients__title {
+        margin-bottom: 24px;
+    }
+}
+
+
+/*           ======================================== services ======================================== */
+.page__services {
+}
+.services {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+@media (max-width:991.98px){
+    .services {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+@media (max-width:767.98px){
+    .services {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+}
+
+
+.services__container {
+    display: flex;
+    align-items: center;
+    /* column-gap: 8.125%;  */
+    /* 104px/1280 */
+    gap:31px;
+}
+
+
+.services__content {
+    flex: 1;
+}
+.services__cards {
+    /* flex: 1; */
+    flex-basis: 51.796875%; /* 663px/1280px */
+
+    display: flex;
+    gap:  4.84375%; /* 31px/640px */
+    gap: 31px;
+}
+.services__header {
+}
+
+
+.services__column {
+    display: flex;
+    flex-direction: column;
+    row-gap:  31px;
+}
+
+/* TWO SOLUTIONS ! */
+/* .services__column__1 {
+    padding-top: 48px;
+} */
+.services__column:first-child {
+    padding-top: 48px;
+}
+
+.services__column__2 {
+}
+.services__item {
+    padding: 55px 25px 61px;
+    background-color: rgba(129, 129, 139, 0.1);
+    border-radius: 30px;
+
+}
+.item-service {
+}
+.item-service__icon{
+
+}
+.item-service__icon:not(:last-child) {
+    margin-bottom: 15px;
+}
+.item-service__title {
+    color: #fff;
+    font-size: 19px;
+    line-height: 1.42; /* 27px/19 */
+    font-weight: 400;
+}
+.item-service__icon:not(:last-child) {
+    margin-bottom: 10px;
+}
+.item-service__text {
+}
+
+@media (max-width:1100px){
+    .services__container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+}
+
+@media (max-width:620px){
+    .services__cards {
+        flex-direction: column;
+    }
+
+    /* TWO SOLUTIONS ! */
+    /* .services__column__1 {
+        padding-top: 0px;
+    } */
+    .services__column:first-child {
+        padding-top: 0px;
+    }
+}
+
+/*  ===================================== why =================================== */
+
+
+.page__why{
+}
+
+
+.why {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+@media (max-width:991.98px){
+    .why {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+@media (max-width:767.98px){
+    .why {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+.why__container {
+    display: flex;
+    gap:5%; /* 64px/1280 */
+
+    position: relative;
+}
+
+
+.why__container:before{
+    content: '';
+    display: block;
+    background: url('../img/decor.svg') no-repeat;
+    width: 122px;
+    height: 122px;
+
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    z-index: -2;
+}
+
+.why__images {
+    /* flex:1; */
+    flex-basis: 50%;
+}
+
+.why__content {
+    /* flex:1; */
+    flex-basis: 50%;
+
+    align-self: center;
+}
+
+.images-why {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.images-why__item {
+    overflow: hidden; 
+
+}
+
+.images-why__item img{
+    max-width: 100%;
+    /* max-height: 100%; */
+}
+
+.images-why__item_1 {
+    flex-basis: 67.464115%; /* 423px/627px */
+    align-self: stretch;
+
+
+    /* border-radius: 90% 0px 49% 49%; */
+
+    /* border-radius: 90% 0px 49% 49%/ 50% 0 31% 31%; */
+    /* border-top-left-radius: 180rem 80rem ; */
+    border-radius: 90% 0% 50% 49% / 49% 0% 31% 31% ;
+    /* https://9elements.github.io/fancy-border-radius/#76.100.0.60--701.427 */
+
+}
+
+
+.images-why__item_1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* transform: scale(1.4);
+    translate: 0 110px; */
+}
+
+.images-why__item_2 {
+    align-self: flex-end;
+    flex-basis: 28.913738%; /* 181px/626px */
+    border-radius:  50% 50% 50% 0%;
+}
+
+
+
+@media (max-width:767.98px){
+    .why__container {
+        /* оскільки спочатку має бути текст а потім зобрадення то робимо реверс */
+        flex-direction: column-reverse;
+        row-gap:32px; 
+    }
+    .images-why {
+        min-height: 40vh;
+
+    }
+}
+
+/* ==================================================== advantages ==================================================== */
+.advantages{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+@media (max-width:991.98px){
+    .advantages {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+@media (max-width:767.98px){
+    .advantages {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+.advantages__container {
+    display: flex;
+    gap: 32px;
+}
+
+.advantages__cards {
+    /* можна вже не рахувати а використати auto */
+    /* flex-basis: 58.4375%; 748px/1310px */
+    /* flex: 1 1 auto; */
+    flex: 1 1 57.099237%; /* 748px/1310px */
+
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+.advantages__card {
+    padding: 40px;
+    background-color: rgba(129, 129, 139, 0.1);
+    border-radius: 30px;
+}
+.advantages__value {
+    color: white;
+    font-size: 51px;
+    line-height: 1.19; /* 61/51 */
+}
+
+.advantages__value:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+.advantages__text {
+    font-size: 18px;
+}
+.advantages__image {
+    /* align-self: flex-end; */
+    align-self: center;
+    align-self: stretch;
+
+
+    flex-basis: 38%; /* 500px/1310px */
+    border-radius: 0% 68% 60% 60% / 0% 68% 50% 50%;
+    overflow: hidden;
+    /* border: 2px solid #3D96F4; */
+}
+
+.advantages__image img{
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width:991.98px){
+    .advantages__container {
+        flex-direction: column ;
+    }
+
+    .advantages__image{
+        align-self: center;
+    }
+}
+
+@media (max-width:767.98px){
+    .advantages__cards {
+        grid-template-columns: auto;
+    }
+}
+
+
+/* ===================================================================== testimonials ============================================= */
+
+.page__testimonials {
+}
+
+.testimonials{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+
+.testimonials__container {
+}
+
+.testimonials__content {
+}
+.testimonials__content:not(:last-child) {
+    margin-bottom: 64px;
+}
+@media (max-width:991.98px){
+    .testimonials {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .testimonials__content:not(:last-child) {
+        margin-bottom: 40px;
+    }
+}
+@media (max-width:767.98px){
+    .testimonials {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .testimonials__content:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+.testimonials__header .header-main__title{
+    max-width: none;
+}
+.testimonials__header .header-main__subtitle{
+    max-width: 736px;
+}
+
+.testimonials__button{
+    max-width: 161.2px;
+}
+
+.testimonials__items {
+    display: flex;
+    gap: 3.664122%; /* 48px/1310px */
+    row-gap: 32px;
+}
+
+.item-testimonial {
+    flex: 0 1 33.333%;
+
+    background-color: rgba(129, 129, 139, 0.1);
+    padding: 64px 40px;
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width:1020px){
+    .testimonials__items {
+        flex-direction: column;
+    }
+}
+
+@media (max-width:767.98px){
+    .item-testimonial { 
+        padding: 30px 15px;
+    }
+}
+
+.user-testimonial {
+    display: flex;
+    gap:16px;
+}
+
+.user-testimonial:not(:last-child) {
+    margin-bottom: 33px;
+}
+
+.user-testimonial__avatar {
+    /*  flex: 0 0 68px; better then h=w=64px*/
+    flex: 0 0 68px;
+
+    overflow: hidden;
+    /* margin-right: 16px; */
+}
+
+.user-testimonial__avatar_1{
+    border-radius: 0 50% 50% 50%;
+}
+.user-testimonial__avatar_2{
+    border-radius: 50% 0 50% 50%;
+}
+.user-testimonial__avatar_3{
+    border-radius: 50% 50% 0 50%;
+}
+
+.user-testimonial__avatar img {
+    max-width: 100%;
+}
+.user-testimonial__body {
+}
+.user-testimonial__name {
+    color: #fff;
+    line-height: 1.5; /* 24/16 */
+}
+.user-testimonial__name:not(:last-child) {
+    margin-bottom: 7px;
+}
+.user-testimonial__company {
+    font-size: 14px;
+    line-height: 1.57; /* 22px/14 */
+}
+.testimonials__title {
+    color: #fff;
+    font-size: 32px;
+    line-height: 1.40625; /* 45px/32 */
+}
+
+.testimonials__text{
+    font-size: 16px;
+    line-height: 1.5; /* 24/16 */
+}
+
+.testimonials__title:not(:last-child) {
+    margin-bottom: 33px;
+}
+
+.testimonials__text:not(:last-child) {
+    margin-bottom: 33px;
+}
+.testimonials__title:not(:last-child) {
+    margin-bottom: 33px;
+}
+.testimonials__rate {
+    
+}
+.testimonials__rate img{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+}
+
+
+/* ===================================================================== blog ============================================= */
+
+.page__blog {
+}
+.blog {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.blog__container {
+}
+.blog__header {
+    margin-bottom: 64px;
+}
+
+.blog__button {
+}
+.blog__items {
+    display: flex;
+    column-gap: 4.885496%; /* 64px/1310px */
+    row-gap: 32px;
+}
+.blog__item {
+}
+.item-blog {
+    flex: 0 1 33.333%;
+
+    background-color: rgba(129, 129, 139, 0.1);
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+
+.item-blog__header{
+    position: relative;
+}
+
+.item-blog__category {
+    background-color: rgba(129, 129, 139, 0.5);
+    border-radius: 0px 10px 0px 0px;
+    padding: 9px 10px;
+
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.57; /* 22/14 */
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+}
+/* this is <a> */
+.item-blog__image {
+    display: block;
+
+    /* 194px - height of image in figma
+       394px - width of image in figma
+       How to get padding in %?
+       We are position relative, so containing block will be content-box of ancestor.
+       So the width of ancestor (width cuz padding)
+     */
+    padding-bottom: 49.238579%; /* 194px/394px */
+    position: relative;
+}
+.item-blog__image:not(:last-child) {
+    margin-bottom: 10px;
+}
+.item-blog__image img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+.item-blog__body {
+    padding: 26px 26px 40px 26px;
+}
+
+@media (max-width:767.98px){
+    .item-blog__body {
+        padding: 15px 15px 20px 15px;
+    }
+}
+
+.item-blog__date {
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(129, 129, 139, 0.9);
+}
+.item-blog__date:not(:last-child) {
+    margin-bottom: 20px;
+}
+.item-blog__title {
+    max-width: 290px;
+}
+.item-blog__title:hover {
+    text-decoration: underline;
+}
+
+.item-blog__title:not(:last-child) {
+    margin-bottom: 30px;
+}
+.item-blog__link-title {
+    font-size: 19.2px;
+    line-height: 1.4; /* 27px/19.2px */
+    color: #ffffff;
+}
+
+.item-blog__text {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.item-blog__text:not(:last-child) {
+    margin-bottom: 22px;
+}
+
+.item-blog__link {
+    color: #3D96F4;
+    font-size: 14px;
+    line-height: 1.57; /* 22px/14 */
+}
+
+.blog__header .header-main__title{
+    max-width: 390px;
+}
+.blog__header .header-main__subtitle{
+    max-width: 736px;
+}
+
+@media (max-width:1100px){
+    .blog__items {
+        column-gap: 20px;
+    }
+    .item-blog__body {
+        padding: 16px 16px 20px 16px;
+    }
+}
+
+@media (max-width:991.98px){
+    .blog {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .blog__header:not(:last-child) {
+        margin-bottom: 40px;
+    }
+}
+@media (max-width:767.98px){
+    .blog {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .blog__header:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .blog__items {
+        flex-direction: column;
+    }
+}
+
+/* ===================================================================== start ============================================= */
+
+.start {
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+.start__container {
+}
+
+.start__body{
+    background: rgba(129, 129, 139, 0.1);
+    border-radius: 30px;
+    padding: 50px 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.start__column {
+    flex-basis: 50%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.start__title {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.4; /* 45px/32 */
+    color: #fff;
+    max-width: 350px;
+}
+
+.start__title :not(:last-child) {
+    margin-bottom: 16px;
+}
+
+
+.start__text {
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 350px;
+}
+.start__actions {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+.start__button {
+}
+
+@media (max-width:991.98px){
+    .start {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .start__body{
+        padding: 40px 30px;
+    }
+}
+@media (max-width:767.98px){
+    .start {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .start__body {
+        flex-direction: column;
+        row-gap: 20px;
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width:383px){
+    .start__title {
+        font-size: 22px;
+    }
+    .start__actions {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .start__button{
+        width: 100%;
+    }
+}
+
+/* ===================================================================== footer ============================================= */
+
+
+.footer {
+}
+.footer__main {
+    padding-top: 160px;
+    padding-bottom: 160px;
+}
+@media (max-width:991.98px){
+    .footer__main {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+@media (max-width:767.98px){
+    .footer__main {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}
+
+.main-footer {
+}
+.main-footer__container {
+}
+.main-footer__columns {
+    display: grid;
+    grid-template-columns: minmax(auto, 378px) auto auto minmax(auto, 378px);
+    gap: 64px;
+}
+
+.main-footer__column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+
+.main-footer__logo {
+}
+.main-footer__text{
+    flex-grow: 1;
+}
+.main-footer__social {
+}
+
+.social {
+    display: flex;
+    gap: 16px;
+}
+.social__link {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(129, 129, 139, 0.9);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: border 0.3s ease 0s;
+}
+.social__link:hover {
+    border-color: #fff;
+}
+
+.social__image {
+}
+
+.main-footer__label {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    /* margin-bottom: 30px; */
+
+}
+
+.main-footer__menu {
+}
+
+.menu-footer {
+}
+.menu-footer__list {
+}
+.menu-footer__item {
+}
+.menu-footer__item:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+.menu-footer__link {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #9C9C9C;
+}
+.menu-footer__link:hover {
+    color: #fff;
+}
+.main-footer__subscribe {
+}
+
+.subscribe-footer {
+}
+.subscribe-footer__text {
+}
+.subscribe-footer__text:not(:last-child){
+    margin-bottom: 33px;
+}
+.subscribe-footer__form {
+    display: flex;
+    gap: 16px;
+}
+.subscribe-footer__input {
+    flex-grow: 1;
+    border: 1px solid rgba(129, 129, 139, 0.3);
+    border-radius: 50px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    padding: 14px 30px;
+    background-color: transparent;
+    /* width: 100%; */
+}
+.subscribe-footer__input::placeholder {
+    color: #999999;
+}
+
+.subscribe-footer__button {
+}
+
+.footer__bottom {
+}
+.bottom-footer {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-top: 1px solid rgba(129, 129, 139, 0.2);
+}
+.bottom-footer__container {
+}
+.bottom-footer__copy {
+    color: #9C9C9C;
+    line-height: 1.6;
+}
+
+@media (max-width:1105px){
+    .main-footer__columns {
+        gap:32px;
+        grid-template-columns: minmax(auto, 378px) auto auto;
+    }
+    .main-footer__column:nth-child(1){
+        grid-column: span 3;
+    }
+}
+
+@media (max-width:767.98px){
+    .main-footer__columns {
+        grid-template-columns: auto auto;
+    }
+    .main-footer__column:nth-child(1){
+        grid-column: span 2;
+    }
+    .main-footer__column:nth-child(4){
+        grid-column: span 2;
+    }
+    .main-footer__column {
+        gap: 15px;
+    }
+    .subscribe-footer__text:not(:last-child){
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width:450px){
+    .main-footer__columns {
+        grid-template-columns: auto;
+    }
+    .main-footer__column:nth-child(1){
+        grid-column: span 1;
+    }
+    .main-footer__column:nth-child(4){
+        grid-column: span 1;
+    }
+    .subscribe-footer__form{
+        flex-wrap: wrap;
+    }
+    .main-footer__column{
+        align-items: center;
+        text-align: center;
+    }
+    .subscribe-footer__button {
+        width: 100%;
+    }
+}
